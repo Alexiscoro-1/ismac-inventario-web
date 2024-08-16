@@ -11,7 +11,7 @@
 
 	<h1>Promociones</h1>
 	
-			
+			<button onclick="window.location.href='/ismac-inventario-web/promociones/findOne?opcion=1'; return false;"> Agregar </button>
 	
 	<table>
 			<thead>

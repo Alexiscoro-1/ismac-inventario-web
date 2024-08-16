@@ -9,16 +9,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.springframework.stereotype.Component;
 
-@Component
+
 @Entity
 @Table(name="promociones")
 public class promociones {
-
-	
-	// Atributos 
-	//id_promocion, Nombre, Descuento, FechaInicio, FechaFin
 
 
 	@Id
@@ -28,7 +23,7 @@ public class promociones {
 	@Column(name = "Nombre")
 	private String nombre;
 	@Column(name = "Descuento")
-	private double descuento;
+	private Double descuento;
 	@Column(name = "FechaInicio")
 	private Date fechaInicio;
 	@Column(name = "FechaFin")
@@ -40,7 +35,7 @@ public class promociones {
 	public promociones() { }
 
 	
-	public promociones(int idPromocion, String nombre, double descuento, Date fechainicio, Date fechafin) {
+	public promociones(int idPromocion, String nombre, Double descuento, Date fechaInicio, Date fechaFin) {
 		
 		this.idPromocion = idPromocion;
 		this.nombre = nombre;
@@ -49,10 +44,6 @@ public class promociones {
 		this.fechaFin = fechaFin;
 	}
 
-
-
-
-	
 
 	public int getIdPromocion() {
 		return idPromocion;
@@ -74,14 +65,13 @@ public class promociones {
 	}
 
 
-	public double getDescuento() {
-		return descuento;
-	}
+	 public Double getDescuento() {
+	        return descuento != null ? descuento : 0.0;
+	    }
 
-
-	public void setDescuento(double descuento) {
-		this.descuento = descuento;
-	}
+	    public void setDescuento(Double descuento) {
+	        this.descuento = descuento;
+	   }
 
 
 	public Date getFechaInicio() {

@@ -21,7 +21,6 @@ import com.distribuida.entities.clientes;
 public class clientesController {
 
 	
-	// JSP .- Java Server Page, son las paginas web de tecnologia 
 	@Autowired
 	private clientesDAO clientesDAO;
 	
@@ -36,11 +35,6 @@ public class clientesController {
 		
 		return "listar-clientes" ;  //Esto es el nombre del formulario 
 		
-//		}catch (Exception e) {
-//		//TODO: handle exception
-//		e.printStackTrace();
-//	  }
-	
 	}
 	
 	@GetMapping("/findOne")
@@ -48,20 +42,18 @@ public class clientesController {
 						 ,@RequestParam("opcion") @Nullable Integer opcion
 						 ,Model model
 			) {
-		//try {
 
 		if(idcliente != null) {
-			clientes clientes = clientesDAO.findOne(idcliente);
-			model.addAttribute("clientes", clientes);	
+			clientes cliente = clientesDAO.findOne(idcliente);
+			model.addAttribute("cliente", cliente);	
 		}
 		
-		if(opcion ==1) return "add-clientes";
-		else return "del-clientes";
-
-//		}catch (Exception e) {
-//		//TODO: handle exception
-//		e.printStackTrace();
-//	  }
+		if(opcion !=  null && opcion ==1) {
+			
+			 return "add-clientes"; // Vista para agregar o editar
+        } else {
+            return "del-clientes"; // Vista para confirmar eliminación
+        }
 	}
 	
 	@PostMapping("/add")
@@ -73,41 +65,32 @@ public class clientesController {
 					, Model model 
 			) {
 		
-		//try {
-
 		if(idcliente == null) {
-		clientes clientes = new clientes(0, Nombre, Direccion, Telefono, Email);
-		clientesDAO.add(clientes);
+		clientes cliente = new clientes(0, Nombre, Direccion, Telefono, Email);
+		clientesDAO.add(cliente);
 		
 		}else {
 			
-		clientes clientes2 = new clientes(idcliente, Nombre, Direccion, Telefono, Email);
-		clientesDAO.up(clientes2);	
+		clientes cliente = new clientes(idcliente, Nombre, Direccion, Telefono, Email);
+		clientesDAO.up(cliente);	
 		}
 		return "redirect:/clientes/findAll";
 		
-//		}catch (Exception e) {
-//		//TODO: handle exception
-//	  }
-	
+
 	}
 	
 
-	//try {
 
-	@GetMapping ("/del")
-	public String del(@RequestParam("idcliente")@Nullable Integer idcliente) {
-		
-		clientesDAO.del(idcliente);
-		return "redirect:/clientes/finAll";
-		
-//		}catch (Exception e) {
-//		//TODO: handle exception
-//	  }
-	
+
+	@GetMapping("/del")
+	public String del(@RequestParam("idcliente") @Nullable Integer idcliente) {
+	    clientesDAO.del(idcliente);
+	    return "redirect:/clientes/findAll";
 	}
-	
-}
+
+		
+
+	}
 
 
 

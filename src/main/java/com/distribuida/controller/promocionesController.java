@@ -17,7 +17,7 @@ import com.distribuida.dao.promocionesDAO;
 import com.distribuida.entities.promociones;
  
 @Controller
-@RequestMapping("/promociones") // path principal
+@RequestMapping("/promociones") 
  
 public class promocionesController {
  
@@ -62,7 +62,7 @@ public class promocionesController {
 	@PostMapping("/add")
 	public String add(@RequestParam("idpromocion")@Nullable Integer idpromocion
 					,@RequestParam("Nombre")@Nullable String Nombre
-					,@RequestParam("Descuento")@Nullable double Descuento
+					,@RequestParam("Descuento")@Nullable Double Descuento
 					,@RequestParam("FechaInicio")@DateTimeFormat(pattern = "yyyy-MM-dd") @Nullable Date FechaInicio
 					,@RequestParam("FechaFin")@DateTimeFormat(pattern = "yyyy-MM-dd") @Nullable Date FechaFin
 			) {

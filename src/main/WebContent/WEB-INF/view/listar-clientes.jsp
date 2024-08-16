@@ -33,10 +33,21 @@
 						<td> ${item.telefono}</td>
 						<td> ${item.email}</td>
 						
-						<td> 
-							<button> Actualizar </button>
-							<button> Eliminar </button>
-						</td>
+						 <td>
+                    <!-- Formulario para actualizar -->
+                    <form action="${pageContext.request.contextPath}/clientes/findOne" method="get" style="display:inline;">
+					    <input type="hidden" name="idcliente" value="${item.idclientes}" />
+					    <input type="hidden" name="opcion" value="1" />
+					    <button type="submit">Actualizar</button>
+					</form>
+
+
+                    <!-- Formulario para eliminar -->
+                    <form action="${pageContext.request.contextPath}/clientes/del" method="get" style="display:inline;" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este cliente?');">
+					    <input type="hidden" name="idcliente" value="${item.idclientes}" />
+					    <button type="submit">Eliminar</button>
+					</form>
+
 				</tr>
 			</c:forEach>
 			</tbody>
