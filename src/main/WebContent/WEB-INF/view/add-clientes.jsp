@@ -19,16 +19,16 @@
         <input type="hidden" id="idclientes" name="idclientes" value="${promocion.idclientes}">
         <br/>
         Nombre:
-        <input type="text" id="nombre" name="nombre" value="${clientes.nombre}">
+        <input type="text" id="Nombre" name="Nombre" value="${clientes.nombre}">
         <br/>
         Direccion:
-        <input type="text" id="direccion" name="direccion" value="${clientes.direccion}">
+        <input type="text" id="Direccion" name="Direccion" value="${clientes.direccion}">
         <br/>
         Telefono:
-        <input type="text" id="telefono" name="telefono" value="${clientes.telefono}">
+        <input type="text" id="Telefono" name="Telefono" value="${clientes.telefono}">
         <br/>
         Email:
-        <input type="text" id="email" name="email" value=""${clientes.email}">
+        <input type="text" id="Email" name="Email" value=""${clientes.email}">
         <br/>
         
         
