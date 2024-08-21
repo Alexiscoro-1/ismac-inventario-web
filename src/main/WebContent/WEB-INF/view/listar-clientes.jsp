@@ -12,6 +12,7 @@
 	<h1>Clientes</h1>
 	
 			
+				<button onclick="window.location.href='/ismac-inventario-web/clientes/findOne?opcion=1'; return false;"> Agregar </button>
 	
 	<table>
 			<thead>
