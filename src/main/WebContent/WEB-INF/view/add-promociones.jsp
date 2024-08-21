@@ -19,16 +19,16 @@
         <input type="hidden" id="idPromocion" name="idPromocion" value="${promocion.idPromocion}">
         <br/>
         Nombre:
-        <input type="text" id="nombre" name="nombre" value="${promocion.nombre}">
+        <input type="text" id="Nombre" name="Nombre" value="${promocion.nombre}">
         <br/>
         Descuento:
-        <input type="number" id="descuento" name="descuento" value="${promocion.descuento}" step="0.01">
+        <input type="number" id="Descuento" name="Descuento" value="${promocion.descuento}" step="0.01">
         <br/>
         Fecha de Inicio:
-        <input type="date" id="fechaInicio" name="fechaInicio" value="${fn:substring(promocion.fechaInicio,0,10)}">
+        <input type="date" id="FechaInicio" name="FechaInicio" value="${fn:substring(promocion.fechaInicio,0,10)}">
         <br/>
         Fecha de Fin:
-        <input type="date" id="fechaFin" name="fechaFin" value="${fn:substring(promocion.fechaFin,0,10)}">
+        <input type="date" id="FechaFin" name="FechaFin" value="${fn:substring(promocion.fechaFin,0,10)}">
         <br/>
         
         

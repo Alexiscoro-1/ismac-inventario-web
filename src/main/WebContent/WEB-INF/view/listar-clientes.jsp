@@ -18,7 +18,7 @@
 			<thead>
 				<tr> 
 			
-					<th>idclientes </th>
+					<th>  ID  </th>
 					<th>Nombre </th>
 					<th>Direccion </th>
 					<th>Telefono </th>

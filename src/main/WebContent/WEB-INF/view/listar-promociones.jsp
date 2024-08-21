@@ -17,7 +17,7 @@
 			<thead>
 				<tr> 
 			
-					<th>idPromocion </th>
+					<th>ID </th>
 					<th>Nombre </th>
 					<th>Descuento </th>
 					<th>FechaInicio </th>
@@ -44,7 +44,7 @@
                     </form>
 
                     <!-- Formulario para eliminar -->
-                    <form action="${pageContext.request.contextPath}/promociones/del" method="get" style="display:inline;" onsubmit="return confirm('¿Estás seguro de que deseas eliminar esta promoción?');">
+                    <form action="${pageContext.request.contextPath}/promociones/del" method="get" style="display:inline;" onsubmit="return confirm('Â¿EstÃ¡s seguro de que deseas eliminar esta promociÃ³n?');">
                         <input type="hidden" name="idpromocion" value="${item.idPromocion}" />
                         <button type="submit">Eliminar</button>
                     </form>
