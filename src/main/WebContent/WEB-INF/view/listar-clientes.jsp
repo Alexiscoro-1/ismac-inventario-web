@@ -1,31 +1,48 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Clientes</title>
+
+
+<meta charset="UTF-8">
+<title>Inventario - Clientes</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap-table.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 
-	<h1>Clientes</h1>
-	
-			
-				<button onclick="window.location.href='/ismac-inventario-web/clientes/findOne?opcion=1'; return false;"> Agregar </button>
-	
-	<table>
-			<thead>
-				<tr> 
-			
-					<th>  ID  </th>
-					<th>Nombre </th>
-					<th>Direccion </th>
-					<th>Telefono </th>
-					<th>Email </th>
-				</tr>
-			</thead>
-			<tbody>
+		<nav></nav>
+
+	<section class="px-5 py-5">
+    <div class="container">
+        <h1>Sucursales</h1>
+        <div class="container text-center mb-3">
+            <button class="btn btn-primary" onclick="window.location.href='/ismac-inventario-web/clientes/findOne?opcion=1'; return false;">
+                <i class="fa-solid fa-plus"></i> Agregar
+            </button>
+            
+            
+        </div>
+        <div class="table-responsive">
+            <table id="tablaclientes"
+                   class="table table-striped table-sm"
+                   data-height="600"
+                   data-search="true"
+                   data-pagination="true">
+                <thead>
+                    <tr>
+                        <th>ID Sucursal</th>
+                        <th data-field="Nombre" data-sortable="true">Nombre</th>
+                        <th data-field="Direccion" data-sortable="true">DirecciÃ³n</th>
+                        <th data-field="Telefono" data-sortable="true">TelÃ©fono</th>
+                        <th data-field="Email" data-sortable="true">Email</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
 			<c:forEach var="item" items="${clientes}"> 
 				<tr>
 						<td> ${item.idclientes}</td>
@@ -35,25 +52,36 @@
 						<td> ${item.email}</td>
 						
 						 <td>
-                    <!-- Formulario para actualizar -->
-                    <form action="${pageContext.request.contextPath}/clientes/findOne" method="get" style="display:inline;">
-					    <input type="hidden" name="idcliente" value="${item.idclientes}" />
-					    <input type="hidden" name="opcion" value="1" />
-					    <button type="submit">Actualizar</button>
-					</form>
+						        <button class="btn btn-success" onclick="window.location.href='/ismac-inventario-web/clientes/findOne?idclientes=${item.idclientes}&opcion=1'; return false;">
+						    		<i class="fa-solid fa-pen-to-square"></i> Actualizar
+								</button>
+                                  
+                                </button>
+                                <button class="btn btn-danger" onclick="window.location.href='/ismac-inventario-web/clientes/del?idcliente=${item.idclientes}&opcion=2'; return false;">
+                                    <i class="fa-solid fa-trash"></i> Eliminar
+                                </button>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
 
+<footer></footer>
 
-                    <!-- Formulario para eliminar -->
-                    <form action="${pageContext.request.contextPath}/clientes/del" method="get" style="display:inline;" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este cliente?');">
-					    <input type="hidden" name="idcliente" value="${item.idclientes}" />
-					    <button type="submit">Eliminar</button>
-					</form>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bootstrap-table.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bootstrap-table-es-MX.min.js"></script>
 
-				</tr>
-			</c:forEach>
-			</tbody>
-	</table>
-			
-			
+<script type="text/javascript">
+    $(function(){
+        $('#tablaClientes').bootstrapTable({ sortReset: true });
+    });
+</script>
+
 </body>
 </html>

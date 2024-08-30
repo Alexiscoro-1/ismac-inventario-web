@@ -38,13 +38,13 @@ public class clientesController {
 	}
 	
 	@GetMapping("/findOne")
-	public String findOne(@RequestParam("idcliente") @Nullable Integer idcliente
+	public String findOne(@RequestParam("idclientes") @Nullable Integer idclientes
 						 ,@RequestParam("opcion") @Nullable Integer opcion
 						 ,Model model
 			) {
 
-		if(idcliente != null) {
-			clientes cliente = clientesDAO.findOne(idcliente);
+		if(idclientes != null) {
+			clientes cliente = clientesDAO.findOne(idclientes);
 			model.addAttribute("cliente", cliente);	
 		}
 		
